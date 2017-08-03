@@ -61,46 +61,7 @@ export default class ZipkinUI extends Component {
     const hasZipkinUrls = this.state.zipkinUrls.length > 0;
     const alignLeft = {textAlign: 'left', verticalAlign: 'top'};
     return (
-      <div style={{width: '400px'}}>
-        <div>
-          <form id="zipkin-add-ui" onSubmit={this.handleSubmit.bind(this)}>
-            <input id="zipkin-url"
-                   type="text"
-                   value={this.state.zipkinUrl}
-                   onChange={this.handleUrlChange.bind(this)}
-                   name="zipkin-url"
-                   style={{width: '300px'}}
-                   placeholder="Enter URL to a Zipkin UI" />
-            <input type="submit" value="Add" />
-          </form>
-        </div>
-        {hasZipkinUrls ?
-        <table>
-          <thead>
-            <tr>
-              <th style={alignLeft}>URL</th>
-              <th style={alignLeft}>Status</th>
-              <th style={alignLeft}>Instrumented sites</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-          {this.state.zipkinUrls.map(url => {
-            const status = url.status === 'up' ? "✓" : (url.status || 'unknown status');
-            const color = url.status === 'up' ? '#009900' : '#990000';
-            return (
-              <tr key={url.url}>
-                <td style={{...alignLeft, color}}>{url.url}</td>
-                <td style={alignLeft}>{status}</td>
-                <td style={alignLeft}>{url.instrumented}</td>
-                <td style={alignLeft}><button onClick={() => this.handleRemoveUrl(url.url)}>Remove</button></td>
-              </tr>
-            )
-          })}
-          </tbody>
-        </table>
-        : <div>You need to add the URL to a Zipkin UI in order to view traces.</div>}
-      </div>
+      <div style={{width: '400px'}}></div>
     );
   }
 }

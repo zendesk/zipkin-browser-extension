@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import minimatch from 'minimatch';
 import ZipkinUI from './zipkinUI';
-import matchUrl from './matchUrl';
 
 export default class ZipkinPanel extends Component {
   constructor(props) {
@@ -32,12 +31,7 @@ export default class ZipkinPanel extends Component {
   }
 
   traceLink(traceId, requestUrl) {
-    const url = matchUrl(requestUrl, this.state.zipkinUrls);
-    if (url == null) {
-      return null;
-    } else {
-      return `${url.url}/traces/${encodeURIComponent(traceId)}`;
-    }
+    return `https://console.cloud.google.com/traces/traces?project=zendesk-tracing-service&organizationId=712657754575&tid=0000000000000000${encodeURIComponent(traceId)}`;
   }
 
   handleZipkinUrlsChange(value) {
