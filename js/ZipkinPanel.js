@@ -60,7 +60,7 @@ export default class ZipkinPanel extends Component {
               <tbody>
               {this.state.requests.length > 0 ? this.state.requests.map(request => (
                   <tr key={request.traceId}>
-                    <td style={alignLeft}><a target="blank" href={this.traceLink(request.traceId, request.url)}>{request.traceId}</a></td>
+                    <td style={alignLeft}><a target="_blank" href={this.traceLink(request.traceId, request.url)}>{request.traceId}</a></td>
                     <td style={alignLeft}>{request.url}</td>
                   </tr>
                 )
