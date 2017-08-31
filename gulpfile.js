@@ -27,7 +27,8 @@ gulp.task('chrome:mustache', () => gulp.src([
 })).pipe(gulp.dest("build/chrome")));
 gulp.task('chrome:static', () => gulp.src([
   'vendor/chrome/devtools.html',
-  'vendor/chrome/panel.html'
+  'vendor/chrome/panel.html',
+  'img/stackdriver_icon.png'
 ]).pipe(gulp.dest('build/chrome')));
 gulp.task('chrome:package', ['chrome:webpack', 'chrome:mustache', 'chrome:static'], () => gulp.src('build/chrome/*')
   .pipe(zip('zipkin-chrome-extension.zip'))

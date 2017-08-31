@@ -1,9 +1,14 @@
 {
   "manifest_version": 2,
-  "name": "Zipkin Chrome Extension",
-  "description": "Lets you trigger Zipkin traces from the browser, while using your application",
+  "name": "Stackdriver Trace Chrome Extension",
+  "description": "Lets you trigger Stackdriver traces from the browser, while using your application",
   "version": "{{ version }}",
   "devtools_page": "devtools.html",
+  "icons": {
+    "16": "stackdriver_icon.png",
+    "48": "stackdriver_icon.png",
+    "128": "stackdriver_icon.png"
+  },
   "background": {
     "scripts": ["background.bundle.js"],
     "persistent": true

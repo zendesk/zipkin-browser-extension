@@ -5,6 +5,7 @@ import ZipkinUI from './zipkinUI';
 export default class ZipkinPanel extends Component {
   constructor(props) {
     super(props);
+    this.stackdriverUrl = "https://console.cloud.google.com/traces/traces?project=zendesk-tracing-service&organizationId=712657754575";
     this.state = {
       requests: [],
       zipkinUrls: []
@@ -31,7 +32,7 @@ export default class ZipkinPanel extends Component {
   }
 
   traceLink(traceId, requestUrl) {
-    return `https://console.cloud.google.com/traces/traces?project=zendesk-tracing-service&organizationId=712657754575&tid=0000000000000000${encodeURIComponent(traceId)}`;
+    return `${this.stackdriverUrl}&tid=0000000000000000${encodeURIComponent(traceId)}`;
   }
 
   handleZipkinUrlsChange(value) {
@@ -46,7 +47,8 @@ export default class ZipkinPanel extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h2>Zipkin traces</h2>
+            <h2>Stackdriver Trace</h2>
+            <p>Traces are reported to Google Cloud Platform <a href={this.stackdriverUrl}>Stackdriver trace</a>.</p>
             <ZipkinUI pubsub={this.props.pubsub} />
             <table>
               <thead>
@@ -58,7 +60,7 @@ export default class ZipkinPanel extends Component {
               <tbody>
               {this.state.requests.length > 0 ? this.state.requests.map(request => (
                   <tr key={request.traceId}>
-                    <td style={alignLeft}><a target="blank" href={this.traceLink(request.traceId, request.url)}>{request.traceId}</a></td>
+                    <td style={alignLeft}><a target="_blank" href={this.traceLink(request.traceId, request.url)}>{request.traceId}</a></td>
                     <td style={alignLeft}>{request.url}</td>
                   </tr>
                 )
