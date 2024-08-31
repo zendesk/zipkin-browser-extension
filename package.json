@@ -30,11 +30,11 @@
     "gulp-shell": "^0.5.2",
     "gulp-zip": "^3.2.0",
     "jpm": "^1.0.7",
-    "jszip": "^2.6.0",
+    "jszip": "^3.10.1",
     "mocha": "^2.5.3",
-    "node-fetch": "^1.5.1",
+    "node-fetch": "^3.3.2",
     "node-zip": "^1.1.1",
-    "webpack": "^1.12.14",
+    "webpack": "^5.94.0",
     "webpack-stream": "^3.1.0"
   },
   "dependencies": {
